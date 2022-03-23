@@ -14,11 +14,9 @@ export default defineConfig({
       filename: "remoteEntry.js",
       remotes: {
         fleet: "http://localhost:3001/assets/remoteEntry.js",
+        financial: "http://localhost:3002/remoteEntry.js",
       },
       shared: ["react", "react-dom", "react-router-dom"],
     }),
-  ],
-  build: {
-    minify: true,
-  },
+  ]
 });
