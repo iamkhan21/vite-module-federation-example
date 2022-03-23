@@ -1,5 +1,6 @@
-import React, { lazy, Suspense } from "react";
+import React, { lazy } from "react";
 import { BrowserRouter } from "react-router-dom";
+import RemoteComponentWrap from "./RemoteComponentWrap";
 
 // import the router from the subscriptions micro frontend
 // @ts-ignore
@@ -9,15 +10,15 @@ const Button = lazy(() => import("financial/Button"));
 
 const App = () => (
   <BrowserRouter>
-    <header>Header</header>
+    <header>Header from host</header>
 
     <main>
-      <Suspense fallback={<div>Loading...</div>}>
+      <RemoteComponentWrap>
         <FleetRouter />
-      </Suspense>
-      <Suspense fallback={<div>Loading...</div>}>
+      </RemoteComponentWrap>
+      <RemoteComponentWrap>
         <Button />
-      </Suspense>
+      </RemoteComponentWrap>
     </main>
   </BrowserRouter>
 );
